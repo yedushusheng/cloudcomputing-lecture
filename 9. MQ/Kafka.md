@@ -34,7 +34,7 @@ Zookeeper是一种在分布式系统中被广泛用来作为：分布式状态�
 
 Topic在逻辑上可以被认为是一个queue。每条消费都必须指定它的topic，可以简单理解为必须指明把这条消息放进哪个queue里。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA92A.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps36CB.tmp.jpg) 
 
 说明：
 
@@ -62,7 +62,7 @@ kafka分区是提高kafka性能的关键所在，当你发现你的集群性能�
 
 分区具体在服务器上面表现起初就是一个目录，一个主题下面有多个分区，这些分区会存储到不同的服务器上面，或者说，其实就是在不同的主机上建了不同的目录。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA93B.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps36DA.tmp.jpg) 
 
 说明：
 
@@ -135,7 +135,7 @@ consumer group:a
 	consumerB
 	consumerC
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA93C.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps36DF.tmp.jpg) 
 
 如图，因为前面提到过了消费者会直接和leader建立联系，所以它们分别消费了三个leader，所以一个分区不会让消费者组里面的多个消费者去消费 ，但是在消费者不饱和的情况下，一个消费者是可以去消费多个分区的数据的 。
 
@@ -177,11 +177,11 @@ Kafka中消息的备份又叫做副本（Replica），副本的数量是可以�
 
 我们对分区0,1,2分别设置3个副本（其实设置两个副本是比较合适的）：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA93D.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps36EC.tmp.jpg) 
 
 其实每个副本都是有角色之分的，它们会选取一个副本作为leader，而其余的作为follower，我们的生产者在发送数据的时候，是直接发送到leader partition里面 ，然后follower partition会去leader那里自行同步数据，消费者消费数据的时候，也是从leader那去消费数据的 。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA94E.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps36ED.tmp.jpg) 
 
 #### **Follower**
 
@@ -241,9 +241,9 @@ Kafka 本质上是一个 MQ（Message Queue），使用消息队列的好处？
 
 消息生产者生产消息发送到Queue中，然后消息消费者从Queue中取出并且消费消息。消息被消费以后，queue中不再有存储，所以消息消费者不可能消费到已经被消费的消息。Queue支持存在多个消费者，但是对一个消息而言，只会有一个消费者可以消费。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA94F.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps36F1.tmp.jpg) 
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA950.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps36FE.tmp.jpg) 
 
 ## **发布-订阅模式**
 
@@ -251,11 +251,11 @@ Kafka 本质上是一个 MQ（Message Queue），使用消息队列的好处？
 
 消息生产者（发布）将消息发布到topic中，同时有多个消费者（订阅）消费该消息。和点对点方式不同，***\*发布到topic的消息会被所有订阅者消费\****。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA960.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps36FF.tmp.jpg) 
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA961.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3700.tmp.jpg) 
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA962.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3705.tmp.jpg) 
 
 一对多，生产者将消息发布到Topic中，有多个消费者订阅该主题，发布到Topic的消息会被所有订阅者消费，被消费的数据不会立即从Topic清除。
 
@@ -269,27 +269,27 @@ https://www.bilibili.com/video/BV1bt411y72u?p=5&spm_id_from=pageDriver
 
 CAL理论：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA963.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3712.tmp.jpg) 
 
 一般分区容忍性都有保证，很多时候都是在可用性和一致性之间权衡。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA964.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3713.tmp.jpg) 
 
 方案：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA975.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3714.tmp.jpg) 
 
 # **架构**
 
 Kafka集群架构：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA976.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3724.tmp.jpg) 
 
 如上图所示，一个典型的kafka集群中包含若干producer（可以是web前端产生的page view，或者是服务器日志，系统CPU、memory等），若干broker（Kafka支持水平扩展，一般broker数量越多，集群吞吐率越高），若干consumer group，以及一个Zookeeper集群。Kafka通过Zookeeper管理集群配置，选举leader，以及在consumer group发生变化时进行rebalance。producer使用push模式将消息发布到broker，consumer使用pull模式从broker订阅并消费消息。
 
 Kafka Topic结构 Kafka集群中的消息，是通过Topic（主题）来进行组织的，如下图所示：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA977.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3725.tmp.jpg) 
 
 因为每条消息都被append到该partition中，是顺序写磁盘，因此效率非常高（经验证，顺序写磁盘效率比随机写内存还要高，这是Kafka高吞吐率的一个很重要的保证）。每一条消息被发送到broker时，会根据paritition规则选择被存储到哪一个partition。如果partition规则设置的合理，所有消息可以均匀分布到不同的partition里，这样就实现了水平扩展。（如果一个topic对应一个文件，那这个文件所在的机器I/O将会成为这个topic的性能瓶颈，而partition解决了这个问题）
 
@@ -297,11 +297,11 @@ Kafka Topic结构 Kafka集群中的消息，是通过Topic（主题）来进行�
 
 Kafka流程架构：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA978.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3726.tmp.jpg) 
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA989.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3737.tmp.jpg) 
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA98A.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3738.tmp.jpg) 
 
 Kafka存储的消息来自任意多个被称为Producer生产者的进程。数据从而可以被发布到不同的Topic主题下的不同Partition分区。
 
@@ -315,7 +315,7 @@ Kafka运行在一个由一台或多台服务器组成的集群上，并且分区
 
 Kafka集群将Record流存储在称为Topic的类别中，每个记录由一个键、一个值和一个时间戳组成。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA98B.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3739.tmp.jpg) 
 
 Kafka是一个分布式流平台，这到底是什么意思？
 
@@ -339,7 +339,7 @@ Producer生产的数据会不断追加到该log文件末端，且每条数据都
 
 ## **存储机制**
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA98C.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps373F.tmp.jpg) 
 
 由于生产者生产的消息会不断追加到log文件末尾，***\*为防止log文件过大导致数据定位效率低下，Kafka采取了分片和索引机制\****。
 
@@ -361,7 +361,7 @@ leader-epoch-checkpoint
 
 index和log文件以当前Segment的第一条消息的Offset 命名。下图为index 文件和log文件的结构示意图：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA99C.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps374B.tmp.jpg) 
 
 “.index”文件存储大量的索引信息，“.log”文件存储大量的数据，索引文件中的元数据指向对应数据文件中Message的物理偏移量。
 
@@ -411,7 +411,7 @@ headers：array类型，Nullable。
 
 如果Producer收到ACK，就会进行下一轮的发送，否则重新发送数据。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA99D.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3751.tmp.jpg) 
 
  
 
@@ -421,7 +421,7 @@ headers：array类型，Nullable。
 
 多少个Follower同步完成后发送ACK？全部Follower同步完成，再发送ACK。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA99E.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps375C.tmp.jpg) 
 
 #### **ISR**
 
@@ -441,7 +441,7 @@ headers：array类型，Nullable。
 
 所以Kafka为用户提供了三种可靠性级别，用户根据可靠性和延迟的要求进行权衡，选择以下的配置。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA99F.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps375D.tmp.jpg) 
 
 ACK参数配置：
 
@@ -455,7 +455,7 @@ ACK参数配置：
 
 #### **故障处理细节**
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9B0.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3764.tmp.jpg) 
 
 LEO：每个副本最大的Offset。HW：消费者能见到的最大的Offset，ISR队列中最小的 LEO。
 
@@ -519,13 +519,13 @@ Kafka有两种分配策略，一个是RoundRobin，一个是Range，默认为Ran
 
 #### **RoundRobin**
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9B1.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps376F.tmp.jpg) 
 
 RoundRobin轮询方式将分区所有作为一个整体进行Hash排序，消费者组内分配分区个数最大差别为1，是按照组来分的，可以解决多个消费者消费数据不均衡的问题。
 
 但是，当消费者组内订阅不同主题时，可能造成消费混乱，如下图所示，Consumer0订阅主题A，Consumer1订阅主题B。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9B2.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3770.tmp.jpg) 
 
 将A、B主题的分区排序后分配给消费者组，TopicB分区中的数据可能分配到Consumer0中。
 
@@ -533,13 +533,13 @@ RoundRobin轮询方式将分区所有作为一个整体进行Hash排序，消费
 
 #### **Range**
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9B3.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3777.tmp.jpg) 
 
 Range方式是按照主题来分的，不会产生轮询方式的消费混乱问题。
 
 但是，如下图所示，Consumer0、Consumer1 同时订阅了主题A和B，可能造成消息分配不对等问题，当消费者组内订阅的主题越多，分区分配可能越不均衡。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9C3.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3782.tmp.jpg) 
 
 ### **Offset的维护**
 
@@ -720,11 +720,11 @@ kafka使用文件存储消息，这就直接决定kafka在性能上严重依赖�
 
 先来看看非零拷贝的情况
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9C4.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3789.tmp.jpg) 
 
 可以看到数据的拷贝从内存拷贝到kafka服务进程那块，又拷贝到socket缓存那块，整个过程耗费的时间比较高，kafka利用了Linux的sendFile技术（NIO），省去了进程切换和一次数据拷贝，让性能变得更好。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9C5.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps378A.tmp.jpg) 
 
 ## **日志分段存储**
 
@@ -750,7 +750,7 @@ Kafka规定了一个分区内的.log文件最大为1G，做这个限制目的是
 
 kafka的网络设计和Kafka的调优有关，这也是为什么它能支持高并发的原因。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9D6.tmp.png) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3794.tmp.png) 
 
 首先客户端发送请求全部会先发送给一个Acceptor，broker里面会存在3个线程（默认是3个），这3个线程都是叫做processor，Acceptor不会对客户端的请求做任何的处理，直接封装成一个个socketChannel发送给这些processor形成一个队列，发送的方式是轮询，就是先给第一个processor发送，然后再给第二个，第三个，然后又回到第一个。
 
@@ -810,7 +810,7 @@ Kafka单集群可承载的分区数量对于一些业务来说，又特别重要
 
 去除ZooKeeper后的Kafka
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9D7.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3795.tmp.jpg) 
 
 为了改善Kafka，去年起Confluent就开始重写ZooKeeper功能，将这部分代码集成到了Kafka内部。他们将新版本称为“ Kafka on Kafka”，意思是将元数据存储在Kafka本身，而不是存储ZooKeeper这样的外部系统中。Quorum控制器使用新的KRaft协议来确保元数据在仲裁中被精确地复制。这个协议在很多方面与ZooKeeper的ZAB协议和Raft相似。这意味着，仲裁控制器在成为活动状态之前不需要从ZooKeeper加载状态。当领导权发生变化时，新的活动控制器已经在内存中拥有所有提交的元数据记录。
 
@@ -878,15 +878,15 @@ Confluent的科林·麦凯布（Colin McCabe）回应这个争议说，起码去
 
 数据源生产流程（Kafka->Flume）：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9D8.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps379C.tmp.jpg) 
 
 数据源消费流程（kafka->strom）：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9E9.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps37A7.tmp.jpg) 
 
 整体流程：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wpsA9EA.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps37A8.tmp.jpg) 
 
 ### **传递消息**
 

@@ -4,11 +4,11 @@
 
 ​	AMQP定义：是具有现代特征的二进制协议。是一个提供统一消息服务的应用层标准高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E27.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3B6D.tmp.jpg) 
 
 ## **核心概念**
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E38.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3B6E.tmp.jpg) 
 
 ### **Publisher**
 
@@ -100,7 +100,7 @@ TCP一旦打开，就会创建AMQP信道。
 
 路由键可以理解为匹配的规则。
 
-# ***\*RabbitMQ\****
+# RabbitMQ
 
 ## **背景**
 
@@ -138,11 +138,11 @@ TCP一旦打开，就会创建AMQP信道。
 
 ## **架构**
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E39.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3B7E.tmp.jpg) 
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E3A.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3B7F.tmp.jpg) 
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E4A.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3B80.tmp.jpg) 
 
 ​	注：发消息的时候需要指定发往哪个Exchange，然后就是routing key，一个Exchange可以将消息发往一个绑定的消息队列。
 
@@ -184,7 +184,7 @@ RabbitMQ是发布-订阅模式（可以设置多种订阅模式），Kafka支持
 
 ## **交换机**
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E4B.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3B91.tmp.jpg) 
 
 ​	Exchange交换机，***\*接收消息，并根据路由键转发消息所绑定的队列\****。
 
@@ -204,7 +204,7 @@ RabbitMQ是发布-订阅模式（可以设置多种订阅模式），Kafka支持
 
 ### **Direc** **Exchange**
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E4C.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3B92.tmp.jpg) 
 
 所有发送到Direct Exchange的消息被转发到RouteKey中指定Queue。
 
@@ -222,7 +222,7 @@ RabbitMQ是发布-订阅模式（可以设置多种订阅模式），Kafka支持
 
 3、 服务直接通信采用direct发布订阅的方式。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E4D.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3B93.tmp.jpg) 
 
 #### 编程
 
@@ -234,7 +234,7 @@ RabbitMQ是发布-订阅模式（可以设置多种订阅模式），Kafka支持
 
 ### **Topic** **Exchange**
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E5E.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3BA4.tmp.jpg) 
 
 ​	所有发送到Topic Exchange的消息被转发到所有关心RouteKey中指定Topic的Queue上。
 
@@ -244,7 +244,7 @@ RabbitMQ是发布-订阅模式（可以设置多种订阅模式），Kafka支持
 
 #### 应用场景
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E5F.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3BA5.tmp.jpg) 
 
 #### 编程
 
@@ -256,7 +256,7 @@ RabbitMQ是发布-订阅模式（可以设置多种订阅模式），Kafka支持
 
 ### **Fanout** **Exchange**
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E60.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3BA6.tmp.jpg) 
 
 ​	Fanout（***\*群发\****）不处理路由键，只需要简单的将队列绑定到交换机上。
 
@@ -266,11 +266,11 @@ RabbitMQ是发布-订阅模式（可以设置多种订阅模式），Kafka支持
 
 #### 应用场景
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E61.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3BA7.tmp.jpg) 
 
 ​	以上是紧耦合的方案，采用消息队列fanout：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E72.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3BB7.tmp.jpg) 
 
 #### 编程
 
@@ -302,7 +302,7 @@ RabbitMQ是发布-订阅模式（可以设置多种订阅模式），Kafka支持
 
 #### Round-robin轮询分发
 
-#### *Fair* Dispatch公平分发
+#### Fair Dispatch公平分发
 
 ## **消息**
 
@@ -366,7 +366,7 @@ Rabbit会将你的持久化消息写入磁盘上的持久化日志文件，等�
 
 消息信息落库（即***\*消息持久化\****），对消息状态进行打标：
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E73.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3BB8.tmp.jpg) 
 
 ​	注：这种方案需要对数据库进行***\*两次持久化\****操作。
 
@@ -376,7 +376,7 @@ Rabbit会将你的持久化消息写入磁盘上的持久化日志文件，等�
 
 ​	***\*消息落库在高并发场景下，数据库IO压力大，不适用\****。***\*互联网大厂一般采用的是延迟投递，做二次检查，回调检查。\****
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E74.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3BB9.tmp.jpg) 
 
 ​	注：upstream表示生产端，downstream表示消费端。
 
@@ -448,7 +448,7 @@ SELECT COUNT(1) FROM T_ORDER WHERE ID=唯一ID+指纹码
 
 毫秒内的序列号：12bit，一毫米可以生成4096个序列号
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E84.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3BCA.tmp.jpg) 
 
  
 
@@ -488,7 +488,7 @@ SELECT COUNT(1) FROM T_ORDER WHERE ID=唯一ID+指纹码
 
  
 
-### **消息投递**
+### 消息投递
 
 #### Confirm确认消息
 
@@ -496,7 +496,7 @@ SELECT COUNT(1) FROM T_ORDER WHERE ID=唯一ID+指纹码
 
 ​	生产者进行接收应答，用来确定这个消息是否正常的发送到Broker，这种方式也是消息的可靠性投递的核心保证！
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E85.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3BCB.tmp.jpg) 
 
 ​	如何实现Confirm确认消息？
 
@@ -506,7 +506,7 @@ SELECT COUNT(1) FROM T_ORDER WHERE ID=唯一ID+指纹码
 
 #### Return返回消息
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E86.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3BCC.tmp.jpg) 
 
 ​	Return Listener用于处理一些不可路由的消息！
 
@@ -524,7 +524,7 @@ SELECT COUNT(1) FROM T_ORDER WHERE ID=唯一ID+指纹码
 
 ​	我们一般在代码中编写while循环，进行consumer.nextDelivery方法进行获取下一条消息，然后进行消费处理。但是，使用自定义的Consumer更加方便，解耦性更强，也是在实际工作中最常用的使用方式。
 
-![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3E87.tmp.jpg) 
+![img](file:///C:\Users\大力\AppData\Local\Temp\ksohtml\wps3BDD.tmp.jpg) 
 
 ### **消息端限流策略**
 
@@ -620,11 +620,11 @@ RoutingKey:#
 
  
 
-# *Spring* AMQP
+# Spring AMQP
 
-# *RabbitMQ与Spring* Boot整合
+# RabbitMQ与Spring Boot整合
 
-# *RabbitMQ与Spring* cloud整合
+# RabbitMQ与Spring cloud整合
 
 # RabbitMQ集群
 
