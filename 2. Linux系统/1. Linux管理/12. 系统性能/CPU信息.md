@@ -189,7 +189,7 @@ User mode CPU utilization+ System mode CPU utilization
 
 ### %st
 
-软件中断
+steal值
 
  
 
