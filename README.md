@@ -1,0 +1,1 @@
+Some computer technology notes
